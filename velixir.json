@@ -1,0 +1,13 @@
+{
+  "name": "AnythingLLM",
+  "tagline": "Chat with your own documents using the AI model you choose: a private ChatGPT-style workspace for PDFs, notes and web pages, with everything kept on a persistent volume.",
+  "description": "AnythingLLM turns your documents into something you can ask questions of. Upload PDFs, Word files, spreadsheets, text or web pages into workspaces, and chat with them through OpenAI, Anthropic, Mistral, Gemini, OpenRouter or any OpenAI-compatible API, with answers that cite their sources. Embeddings are made by a small model that runs inside the app, so your documents are not sent to a third party just to be indexed, and the vector database lives alongside them. Deploying it adds a persistent volume, so workspaces, chats, documents and settings survive restarts and redeploys, with daily snapshots you can restore from the app's Volume tab. It is locked from the first start: the password is printed once to the deploy log, and you can switch to multi-user mode with separate accounts. Agents, an embeddable chat widget and a developer API are included. You bring the model key, and your provider bills the tokens.",
+  "language": "Node",
+  "runtimeVersion": "22",
+  "accent": "#46C8FF",
+  "tags": ["AI", "Chat with documents", "Volume"],
+  "topics": ["anythingllm", "rag", "llm", "ai-chat", "documents", "nodejs"],
+  "minMemoryMb": 1024,
+  "alwaysOn": true,
+  "volume": { "mountPath": "/data", "limitGb": 10 }
+}

@@ -1,0 +1,20 @@
+# Build settings for velixir's builder (Nixpacks).
+#
+# Nixpacks detects Node from package.json, installs with npm ci and runs `npm run build`
+# (build-anythingllm.js, which builds the pinned AnythingLLM release). Naming the setup packages
+# keeps out anything the builder might add for a headless browser: AnythingLLM's collector
+# depends on puppeteer, and this image has no browser (the collector falls back to plain HTTP,
+# see the README).
+#
+# libuuid is the one system library the server's chart renderer (canvas) loads that the image
+# lacks. It goes in nixLibs rather than aptPkgs: Node here comes from Nix, and a Nix-built Node
+# only finds libraries on the path nixLibs sets up, never in /usr/lib.
+[phases.setup]
+nixPkgs = ["nodejs_22"]
+nixLibs = ["libuuid"]
+aptPkgs = []
+
+# Straight to node rather than `npm run start`: npm and a shell in between do not pass SIGTERM
+# on. start.js runs AnythingLLM's server and collector and forwards the signal to both.
+[start]
+cmd = "node start.js"

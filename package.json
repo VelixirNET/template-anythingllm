@@ -1,0 +1,17 @@
+{
+  "name": "velixir-anythingllm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AnythingLLM, ready to deploy on velixir.",
+  "anythingllm": {
+    "version": "1.18.0"
+  },
+  "scripts": {
+    "build": "node build-anythingllm.js",
+    "start": "node start.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
