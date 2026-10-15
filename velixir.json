@@ -8,6 +8,6 @@
   "tags": ["AI", "Chat with documents", "Volume"],
   "topics": ["anythingllm", "rag", "llm", "ai-chat", "documents", "nodejs"],
   "minMemoryMb": 1024,
-  "alwaysOn": true,
+  "requiresVolume": true,
   "volume": { "mountPath": "/data", "limitGb": 10 }
 }
